@@ -1,7 +1,9 @@
-package com.ctrip.bannerapplication;
+package com.ctrip.bannerapplication.not_package;
 
 import android.os.Handler;
 import android.os.Message;
+
+import com.ctrip.bannerapplication.NotPackagedBannerActivity;
 
 import java.lang.ref.WeakReference;
 
@@ -11,7 +13,7 @@ import java.lang.ref.WeakReference;
  */
 public class BannerHandler extends Handler {
     private String TAG = "SZH";
-    private WeakReference<MainActivity> mWeakReference;
+    private WeakReference<NotPackagedBannerActivity> mWeakReference;
     //轮播间隔时间
     public static final int MSG_DELAY = 3000;
     //轮播
@@ -24,14 +26,14 @@ public class BannerHandler extends Handler {
     public static final int MSG_PAGE_CHANGED = 4;
     private int currentViewPagerItem = BannerDelegate.MAX_VALUE / 2;
 
-    public BannerHandler(MainActivity activity) {
-        mWeakReference = new WeakReference<MainActivity>(activity);
+    public BannerHandler(NotPackagedBannerActivity activity) {
+        mWeakReference = new WeakReference<NotPackagedBannerActivity>(activity);
     }
 
     @Override
     public void handleMessage(Message msg) {
         super.handleMessage(msg);
-        MainActivity activity = mWeakReference.get();
+        NotPackagedBannerActivity activity = mWeakReference.get();
         if (activity == null || activity.bannerDelegate == null || activity.bannerDelegate.mHandler == null) {
             return;
         }

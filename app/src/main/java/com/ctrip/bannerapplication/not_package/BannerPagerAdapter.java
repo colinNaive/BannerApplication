@@ -1,4 +1,4 @@
-package com.ctrip.bannerapplication;
+package com.ctrip.bannerapplication.not_package;
 
 import android.support.v4.view.PagerAdapter;
 import android.view.View;

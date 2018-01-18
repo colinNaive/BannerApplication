@@ -1,18 +1,37 @@
 package com.ctrip.bannerapplication;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.TextView;
+
+/**
+ * @author Zhenhua on 2018/1/18.
+ * @email zhshan@ctrip.com ^.^
+ */
 
 public class MainActivity extends AppCompatActivity {
-    public BannerDelegate bannerDelegate;
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        bannerDelegate = new BannerDelegate(getWindow().getDecorView(), this);
-        int[] sourceList = {R.drawable.pic1, R.drawable.pic2, R.drawable.pic3, R.drawable.pic4, R.drawable.pic5};
-        bannerDelegate.setHandler(this);
-        bannerDelegate.refreshBanner(sourceList);
+        TextView tv1 = (TextView) findViewById(R.id.packaged_banner);
+        tv1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, PackagedBannerActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+        });
+        TextView tv2 = (TextView) findViewById(R.id.not_packaged_banner);
+        tv2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, NotPackagedBannerActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
+        });
     }
 }

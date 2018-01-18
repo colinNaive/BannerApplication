@@ -1,4 +1,4 @@
-package com.ctrip.bannerapplication;
+package com.ctrip.bannerapplication.not_package;
 
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -11,6 +11,9 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.ctrip.bannerapplication.NotPackagedBannerActivity;
+import com.ctrip.bannerapplication.R;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +38,7 @@ public class BannerDelegate {
         inflater = LayoutInflater.from(context);
     }
 
-    public void setHandler(MainActivity activity) {
+    public void setHandler(NotPackagedBannerActivity activity) {
         try {
             if (mHandler != null) {
                 mHandler.removeCallbacksAndMessages(null);

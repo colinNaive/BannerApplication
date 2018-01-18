@@ -1,4 +1,4 @@
-package com.ctrip.bannerapplication;
+package com.ctrip.bannerapplication.not_package;
 
 import android.content.Context;
 import android.graphics.Bitmap;
